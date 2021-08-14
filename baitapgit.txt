@@ -1,0 +1,122 @@
+bài tập git
+
+1/Resposity là gì? phân biệt Remote Resposity và Local Resposity?
+	- Resposity là nơi để chúng ta lưu trữ và quản lý dự án
+	- Remote Resposity là nơi lưu trữ trên github, gitlab
+	- Local Resposity là nơi lưu trữ dự án trên máy tính cá nhân
+2/ Clone là gì? Để thực hiện clone cần yếu tố gì và sử dụng câu lệnh gì?
+	- Clone là tính năng giúp chúng ta có thể sao chép dự án remote
+về máy tính cá nhân (local)
+	-sử dụng: git lone (đường dẫn của dự án)
+	- để thực hiện clone chúng ta phải có 1 dự án remote trên server
+3/Phân biệt trạng thái của file sau:
+	- Commited: có nghĩa là file được thay đổi và được add và được ghi lại
+	- unmotified: Nghĩa là một file mới được tạo ra và hoàn toàn chưa được
+theo dõi bởi git
+	- Unstaged hoặc Modified:
+		+Modified: NGhĩa là file được thay đổi nhưng chưa được add
+	- Staged: có nghĩa là file được thay đổi và mới được add
+sử dụng lệnh gì để kiểm tra trạng thái hiện tại? git status -s
+
+4/cách để thêm (add) một file vào trạng thái Stated là gì? cách hủy bỏ chức
+năng add vừa rồi là gì?
+	-cách add 1 file vào trạng tái staged là: git add (tên file)
+	- cách hủy bỏ chức năng add: git reset (tên file)
+5/Lệnh git status -s để xen trạng tái của file dưới dạng ngắn gọn. Giải thích ý
+nghĩa của các ký hiệu trạng thái trước tên file:
+	-M(xanh) a.txt: file đã được modified và đã được add.
+	-M(đỏ) b.txt: file đã được modified và chưa được add.
+	-M(xanh)M(đỏ) c.txt: file đã được modified và được add, sau đó lại bị
+modified và chưa được add
+	-A(xanh) d.txt: file mới tạo ra và đã được add.
+	-A(xanh)M(đỏ) e.txt: file mói tạo ra và đã được add sao đó lại bị
+modified và chưa được add
+?? f.txt: file được tạo ra nhưng chưa từng được theo dõi bởi git
+
+6/Giải thích ý nghĩa của lệnh git diff và git diff --staged:
+	- git diff: để xem những thay đổi mà chưa được thực hiện
+	- git diff --staged: để xem những thay dổi mà chỉ mới được add chứ
+chưa được commit.
+
+7/ Commit là gì? câu lênh đon giản để thực hiện commit là gì? Giải thích ý
+nghĩa của câu lệnh sau:
+	- Câu lệnh để thực hiện commit: git commit -m (ghi chú bất kỳ)
+	- Commit là 1 lênh dùng để tạo ra 1 bản ghi tạm thời cho toàn bộ
+source code ở thời điểm đó
+
+8/ Mục đích Ignore là gì? Nêu cách Ignore file hoặc folder?
+	
+9/ Giải thíc ý nghĩa của lệnh sau:
+	-git log: cho cúng ta xem lại được lịch sử commit với đầy đủ thông tin
+như là Author, Date, tên commit
+	- git log --oneline: cho cúng ta xem lại lịch sử commit nhưng chỉ với 1
+dòng
+	-git show:
+10/ Giải thích ý nghĩa của câu lênh sau: 
+	- git remote add origin <url>: câu lệnh này dùng đẻ kết nối local với
+remote, trong tường hợp máy local đã tồn tại 1 thư mục có sẵn và ta muốn đấy thư
+mục đó lên remote
+
+11/Branch là gì?Mục đích sử dụng của Branch là gì?
+	-Branch là nhánh, mỗi nhánh chính là 1 phiên bản của project
+	-Mục đích: việc sử dụng Branch giúp cho việc quản lý dự án trở nên dễ dàng
+hơn, công việc của nhánh này sẽ không bị anh hưởng bởi các nhánh khác.
+
+12/Nêu cách thực hiên:
+	-Liệt kê các branch hiện tại: git branch
+	-tạo mới một Branch: git branch (tên branch)
+	- Chuyển tới một branch đẻ làm việc: git checkout (tên branch)
+	-xóa branch: git branch -d (tên branch)
+	- Đổi tên branch: có 2 trường hợp:
+		+TH1: đang đứng tại branch cần đổi tên: git branch -m (tên branch)
+		+TH2: đang đứng tại 1 branch khác: git branch -m (tên branch) (tên branch mới)
+13/ Merge là gì? nêu cách thực hiện:
+	-Merge dùng để góp 2 nhánh lại với nhau
+14/Rebase là gì? Nêu cách thực hiện? Sự khác biệt giữa Rebase và Merge ?
+	-Rebase cũng là dùng để gộp 2 nhánh lại với nhau.
+	-Sự khác nhau:
+		+Merge: 
+			-Trong qua trình Merge thì tạo ra thêm 1 merge commit
+			-Khi yêu cầu merge từ nhánh 1 sang nhánh 2 thì sẽ tạo
+ ra 1 nhánh mà ở đó các commit sẽ được sắp xếp theo thời gian commit.
+			-Vì quá trình merge có tạo ra “merge commit” nên nó cho ta biết
+ được lịch sử quy trình commit, tư đó ta sẽ biết được commit này là của nhánh nào
+		+Rebase:
+			-Không tạo ra merge commit
+			-Khi yêu cầu merge từ nhánh 1 sang nhánh 2 thì sẽ lấy nguyên nhánh
+ 1 bỏ sau nhánh 2.
+			-Rebase thì lại ko có tính năng đó
+15/ confict là gì? Conflict xảy ra trong những trường hợp nào và nêu cách giải quyết
+	-Conflict là những xung đột xảy ra trong khi chúng ta merge or rebase.
+	-Nó xảy ra trong trường hợp cùng 1 file đó mà lại có 2 người code và code của 2 người
+ là khác nhau. Vì để tránh trường hợp code bị đè lên nhau và mất code thì Git sẽ Thông báo là 
+bị Conflict.
+	-Cách giải quyết: chúng ta vào file bị conflict đó, sau đó ta có thể chỉnh sửa lại nội
+ dung bằng cách bỏ đi các dấu đặc biệt, vvv
+
+16/Bạn có thể làm việc trên nhánh master không? Vì sao? Nếu bạn được giao làm một tính năng, bạn sẽ sử dụng quy trình làm việc của git như thế nào? 
+	-Không thể làm việc trên nhánh master,
+	-Nếu được giao một tính năng, thì em sẽ tạo 1 project để viết code ở Local, đồng thời thì local này phải được kết nối tới cái project chính của dự án ở trên remote.
+Đồng thời chúng ta phải tạo Branch cho chúng ta để chúng ta push code lên nhánh đó. 
+ 	-Nếu chúng ta muốn gộp nhánh chúng ta vào nhánh master thì thường chúng ta phải pull nhánh master về máy chúng ta trước sau đó chúng ta làm việc.
+	-Khi muốn đẩy nhánh chúng ta lên nhánh master thì ta phải “Merge request” lên nhánh master chứ không được push lên nhánh master trực tiếp điều này là cấm kỵ vì sẽ làm mất code người khác và gây ra lỗi.
+
+17/So sánh lệnh Fetch và Pull? 
+	-Pull: là dùng để cập nhật tất cả thay đổi ở trên serve xuống Local gọi chung là toàn bộ source code
+	-Fetch: là cũng dùng để cập nhật thay đổi tuy nhiên không phải là source code mà chỉ là những thông tin khác( cái này tham khảo).
+
+18/Push là gì?
+	- Là đẩy những thay đổi ở máy local lên server.
+
+19/Merge request là gì? Sử dụng khi nào? 
+	-Ta sử dụng merge request trong trường hợp ta muốn hợp nhất code ở nhánh ta vào nhánh master
+
+22/Phân biệt 
+	- git reset --hard : đưa chúng ta từ commit đang đứng  về lại 1 commit bất kỳ mà tất cả thay đổi từ commit đó đến commit đang đứng sẽ bị mất
+	- git reset --soft : đưa chúng ta từ commit đang đứng  về lại 1 commit bất kỳ mà tất cả thay đổi từ commit đó đến commit đang đứng vẫn được giũ lại tuy nhiên vẫn chưa được commit, do đó ta có thể chỉnh sửa để commit.
+	- git reset --mix : đưa chúng ta từ commit đang đứng  về lại 1 commit bất kỳ mà tất cả thay đổi từ commit đó đến commit đang đứng vẫn được giũ lại tuy nhiên chưa được add.
+	- git reset : giống với git reset –mix
+
+23/Giải thích ý nghĩa của lệnh sau: 
+■ git clean -f 
+■ git clean -f -d 
